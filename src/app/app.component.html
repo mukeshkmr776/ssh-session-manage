@@ -1,7 +1,11 @@
 <!-- TOP Toolbar -->
 <mat-toolbar class="example-header mat-primary">
   <span>SessionManage</span>
-  <span class="example-spacer"></span>
+  <span class="example-spacer mr-auto"></span>
+  <i class="material-icons theme-mode" (click)="switchMode()" matRipple
+    matTooltip="{{ 'Switch to ' + (!darkBackground ? 'Dark Mode' : 'Light Mode')}}" [matTooltipPosition]="'below'">
+    {{ darkBackground ? 'dark_mode' : 'light_mode'}}
+  </i>
 </mat-toolbar>
 
 <!-- CONTENT -->
@@ -18,12 +22,16 @@
   </mat-sidenav>
 
   <!-- Content -->
-  <mat-sidenav-content [ngClass]="{'example-content': !darkBackground, 'example-content-override': darkBackground}">
+  <mat-sidenav-content class="example-content" [ngClass]="{'example-content-override': darkBackground}">
     <!-- <ng-scrollbar> -->
       <router-outlet class="top-level-router"></router-outlet>
-    <!-- </ng-scrollbar> -->
+      <!-- </ng-scrollbar> -->
   </mat-sidenav-content>
 
 </mat-sidenav-container>
-
-
+  
+  
+  <!-- Footer -->
+  <!-- <div class="footer">
+    <small class="pl-1 pr-1">SessionManage © 2021</small>
+  </div> -->

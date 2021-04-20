@@ -10,6 +10,15 @@ export class SessionComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    // Todo
+  }
+
+  ngAfterViewInit() {
+
+  }
+
+  onKeyEvent(event) {
+    // console.log('Typed - ', event);    
   }
 
 }

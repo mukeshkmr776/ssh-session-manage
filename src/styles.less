@@ -12,17 +12,44 @@ body {
 }
 
 // Buttons 
+.custom-button {
+  color: white !important;
+  margin: 0 5px !important;
+  padding: 0 25px !important;
+  border-radius: .125rem !important;
+  border: .0625rem solid #0a2d74 !important;
+  box-shadow: 2px 3px 3px rgba(0,0,0,0.25) !important;
+  // text-shadow: 0 .0625rem .0625rem rgba(0,0,0,0.25);
+}
 button[color="primary"] {
-    color: white !important;
-    margin: 0 5px !important;
-    padding: 0 25px !important;
-    background-color: #1563ff !important;
-    border-radius: .125rem !important;
-    border: .0625rem solid #0a2d74 !important;
-    box-shadow: 2px 3px 3px rgba(0,0,0,0.25) !important;
-    // text-shadow: 0 .0625rem .0625rem rgba(0,0,0,0.25);
-    &:active {
-      transform: translateY(2px) !important;
-    }
+  .custom-button();
+  background-color: #1563ff !important;
+  &:active {
+    transform: translateY(2px) !important;
   }
-  
+}
+button[color="danger"] {
+  .custom-button();
+  background-color: #ee1616 !important;
+  &:active {
+    transform: translateY(2px) !important;
+  }
+}
+
+
+// Search bar
+.search-bar {
+  height: 38px;
+  border-radius: 0;
+  padding: 0 10px;
+  color: black;
+  background-color: white;
+  outline: none;
+  text-decoration: none;
+  border: 1px solid #0a2d74 !important;
+  box-shadow: 2px 3px 3px rgba(0,0,0,0.25) !important;
+  &:active {
+    text-decoration: none;    
+    outline: none;
+  }
+}

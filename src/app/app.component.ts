@@ -54,7 +54,7 @@ export class AppComponent {
     this.loading = true;
     this.sidenavOptions = fb.group({
       top: 50,
-      bottom: 0
+      bottom: 50
     });
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this.mobileQueryListener = () => changeDetectorRef.detectChanges();
@@ -85,13 +85,17 @@ export class AppComponent {
     this.pages.forEach(p => p.selected = false);
     page.selected = true;
 
-    if (page.darkBackground) {
-      this.darkBackground = true;
-    } else {
-      this.darkBackground = false;
-    }
+    // if (page.darkBackground) {
+    //   this.darkBackground = true;
+    // } else {
+    //   this.darkBackground = false;
+    // }
 
     this.router.navigateByUrl(page.link);
+  }
+
+  switchMode() {
+    this.darkBackground = !this.darkBackground;
   }
 
   ngOnDestroy(): void {
