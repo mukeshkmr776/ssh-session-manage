@@ -1,21 +1,26 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AngularMaterialModule } from './angu;ar.material';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AngularMaterialModule } from './angular.material';
+
 import { NodesComponent } from './pages/nodes/nodes.component';
 import { SessionComponent } from './pages/session/session.component';
 import { MenuComponent } from './pages/menu/menu.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { WelcomeComponent } from './pages/welcome/welcome.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NodesComponent,
     SessionComponent,
-    MenuComponent
+    MenuComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +28,8 @@ import { MenuComponent } from './pages/menu/menu.component';
     ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

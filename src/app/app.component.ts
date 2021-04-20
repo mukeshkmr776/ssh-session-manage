@@ -13,6 +13,7 @@ export class AppComponent {
 
   loading: boolean;
   currentUrl: string;
+  isWelcomePage = false;
   darkBackground = false;
 
   mobileQuery: MediaQueryList;
@@ -24,7 +25,7 @@ export class AppComponent {
   pages = [
     {
       name: 'Welcome',
-      link: '/',
+      link: '/welcome',
       icon: 'home',
       selected: true,
       divider: true,
@@ -36,7 +37,7 @@ export class AppComponent {
       icon: 'scatter_plot',
       selected: false,
       divider: false,
-      darkBackground: true
+      darkBackground: false
     },
     {
       name: 'Session',
@@ -64,23 +65,19 @@ export class AppComponent {
   }
 
   ngAfterViewInit() {
-    // this.router.events.subscribe((event) => {
-    //   if (event instanceof NavigationStart) {
-    //     setTimeout(() => {
-    //       this.loading = true;
-    //       if (event.url?.includes('dashboard')) {
-    //         this.darkBackground = true;
-    //       } else {
-    //         this.darkBackground = false;
-    //       }
-    //     }, 0);
-    //   } else if (event instanceof NavigationEnd || event instanceof NavigationCancel) {
-    //     this.currentUrl = event.url;
-    //     setTimeout(() => { // for illusion to show loading when route change
-    //       this.loading = false;
-    //     }, 1000);
-    //   }
-    // });
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationStart) {
+        this.currentUrl = event.url;
+        if (this.currentUrl === '/') {
+          this.isWelcomePage = true;
+        }
+      } else if (event instanceof NavigationEnd || event instanceof NavigationCancel) {
+        if (this.currentUrl === '/') {
+          this.isWelcomePage = true;
+        }
+        console.log(this.currentUrl);
+      }
+    });
   }
 
 

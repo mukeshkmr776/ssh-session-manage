@@ -19,7 +19,6 @@
 
   <!-- Content -->
   <mat-sidenav-content [ngClass]="{'example-content': !darkBackground, 'example-content-override': darkBackground}">
-    <ng-container *ngTemplateOutlet="welcome"></ng-container>
     <!-- <ng-scrollbar> -->
       <router-outlet class="top-level-router"></router-outlet>
     <!-- </ng-scrollbar> -->
@@ -28,54 +27,3 @@
 </mat-sidenav-container>
 
 
-<!-- Welcome Screen Content -->
-<ng-template #welcome>
-  <!-- <nav class="header-breadcrumb" aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="#">Home</a></li>
-      <li class="breadcrumb-item"><a href="#">Library</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Data</li>
-    </ol>
-  </nav> -->
-
-  <h2>Welcome</h2>
-  <p>Hello</p>
-  <button mat-flat-button color="primary">New</button>
-  <button mat-flat-button disabled>New</button>
-  <br><br>
-
-  <!-- <mat-grid-list cols="4" rowHeight="1:1" gutterSize="5">
-    <mat-grid-tile *ngFor="let item of [{},{},{},{},{},{}]">
-      <mat-card class="example-card">
-        <h4>Shiba Inu</h4>
-        <mat-card-content>
-          <p>
-            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-            bred for hunting.
-          </p>
-        </mat-card-content>
-        <mat-card-subtitle>
-          <p>ID: Dog Breed</p>
-        </mat-card-subtitle>
-      </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list> -->
-
-  <ng-template ngFor let-page [ngForOf]="[{},{},{},{}]">
-    <mat-card class="example-card">
-      <h4>Shiba Inu</h4>
-      <mat-card-content>
-        <p>
-          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-          bred for hunting.
-        </p>
-      </mat-card-content>
-      <mat-card-subtitle>
-        <p>ID: Dog Breed</p>
-      </mat-card-subtitle>
-    </mat-card>
-  </ng-template>
-
-</ng-template>
