@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WelcomeComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild('sampleTemplate', {static: true}) sampleTemplate;
+
+  constructor(private _bottomSheet: MatBottomSheet) {}
 
   ngOnInit(): void {
+  }
+
+  openBottomSheet() {
+    this._bottomSheet.open(this.sampleTemplate, {
+      panelClass: 'mukki'
+    });
   }
 
 }

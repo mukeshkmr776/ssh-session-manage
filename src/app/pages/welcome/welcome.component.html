@@ -7,12 +7,23 @@
   </ol>
 </nav> -->
 
+
 <h2>Welcome</h2>
 <div class="d-flex align-items-center">
   <div class="mr-auto">Hello, world!</div>
   <button mat-flat-button color="primary">New</button>
 </div>
 <br>
+
+
+<!-- SnackBar -->
+<!-- <ng-template #sampleTemplate>
+  hello
+</ng-template>
+<button mat-stroked-button (click)="openBottomSheet()" aria-label="Show an example snack-bar">
+  show message
+</button> -->
+
 
 <div fxLayout="row wrap" fxLayoutGap="16px grid">
   <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let num of [1,2,3,4,5,6,7]">
@@ -34,3 +45,5 @@
     </mat-card>
   </div>
 </div>
+
+

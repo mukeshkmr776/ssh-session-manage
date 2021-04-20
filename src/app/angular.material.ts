@@ -32,7 +32,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTooltipModule } from '@angular/material/tooltip';
-
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 
 const materialModules = [
   CdkTreeModule,
@@ -66,7 +66,8 @@ const materialModules = [
   MatGridListModule,
   MatRadioModule,
   MatDatepickerModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatBottomSheetModule
 ];
 
 @NgModule({
