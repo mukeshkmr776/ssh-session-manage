@@ -1,0 +1,107 @@
+:host {
+  position: relative;
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+}
+
+.example {
+  &-header {
+    background-color: #1a73e8;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    z-index: 3;
+    // box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2), 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12);
+  }
+
+  &-container {
+    position: absolute;
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  &-sidenav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 250px;
+    min-width: 250px;
+    background-color: white;
+
+    &.mat-drawer-side {
+      border-right: 1px solid #dce0e6;
+    }
+  }
+
+  &-content {
+    padding: 1.5rem;
+    background-color: white;
+
+    &-override {
+      padding: 1.5rem;
+      color: white !important;
+      background-color: #41495e !important;
+    }
+  }
+}
+
+.item {
+  padding: 0 1rem;
+  line-height: 3;
+  cursor: pointer;
+
+  &.active {
+    color: #1563ff;
+    background-color: #f0f5ff;
+
+    &::after {
+      content: " ";
+      position: absolute;
+      width: 3px;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background-color: #1a73e8;
+    }
+  }
+
+  &:hover {
+    color: #1563ff;
+    background-color: #f0f5ff;
+  }
+
+  &:first-child {
+    margin-top: 50px;
+  }
+}
+
+
+.header-breadcrumb .breadcrumb {
+  background-color: white;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+
+.example-card {
+  font-size: .75rem;
+  line-height: 1.3333333333;
+  color: #6f7682;
+  margin: 0 5px 5px 0;
+  border: .0625rem solid gray;
+  border-radius: .125rem;
+  box-shadow: 0 .125rem .125rem gray;
+  &:hover {
+    transform: translate(0px, -2px);
+    cursor: pointer;
+  }
+}
