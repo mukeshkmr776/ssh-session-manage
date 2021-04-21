@@ -13,7 +13,6 @@ import { SessionComponent } from './pages/session/session.component';
 import { MenuComponent } from './pages/menu/menu.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
-import { NgTerminalModule } from 'ng-terminal';
 
 @NgModule({
   declarations: [
@@ -30,8 +29,7 @@ import { NgTerminalModule } from 'ng-terminal';
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
-    FlexLayoutModule,
-    NgTerminalModule
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

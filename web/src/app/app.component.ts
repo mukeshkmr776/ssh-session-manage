@@ -9,7 +9,7 @@ import { NavigationCancel, NavigationEnd, NavigationStart, Router } from '@angul
   styleUrls: ['./app.component.less']
 })
 export class AppComponent {
-  title = 'ssh-session-ui';
+  title = 'web';
 
   loading: boolean;
   currentUrl: string;
