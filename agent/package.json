@@ -1,0 +1,21 @@
+{
+  "name": "agent",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start-server": "node index.js --host localhost --username mukki --password mukki",
+    "test-client": "node test-client.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "node-ssh": "^11.1.1",
+    "socket.io": "^4.0.1",
+    "socket.io-client": "^4.0.1",
+    "uuid": "^8.3.2",
+    "yargs": "^16.2.0"
+  }
+}
