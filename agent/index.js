@@ -1,6 +1,6 @@
 const WebSocketService = require('./lib/websocket');
 const { ConfigurationService } = require('./lib/services');
-const SshStreamInstance = require('./lib/ssh/ssh.service');
+const SshStreamInstance = require('./lib/ssh');
 
 // Main
 (async () => {
@@ -16,6 +16,7 @@ const SshStreamInstance = require('./lib/ssh/ssh.service');
     // SshStreamInstance
     await SshStreamInstance.startSshStream
     (
+        { host, username, password },
         (stdout) => {
             process.stdout.write(stdout);
             WebSocketService.sendMessage(stdout.toString());
@@ -23,8 +24,7 @@ const SshStreamInstance = require('./lib/ssh/ssh.service');
         (stderr) => {
             process.stderr.write(stderr);
             WebSocketService.sendMessage(stderr.toString());
-        },
-        { host, username, password }
+        }
     );
 
     WebSocketService.shutdownApplication();

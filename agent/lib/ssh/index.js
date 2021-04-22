@@ -45,16 +45,18 @@ const pipeStream = (stream, {stdout_cb, stderr_cb}) => {
 }
 
 module.exports = {
-    startSshStream: async function (stdout_cb, stderr_cb, {host, username, password}) {
+    startSshStream: async function (credentials, stdout_cb, stderr_cb,) {
+        const { host, username, password } = credentials;
+
         if (!ssh) {
             console.log('Stream already opened...');
             return;
         }
 
         await ssh.connect({
-                   host: process.env.HOST     || host,
-               username: process.env.USERNAME || username,
-               password: process.env.PASSWORD || password,
+                   host: host,
+               username: username,
+               password: password,
                compress: true,
             tryKeyboard: true
         });

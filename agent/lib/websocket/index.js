@@ -6,7 +6,7 @@ const { v4: uuidv4 } = require('uuid');
 const { Server } = require("socket.io");
 
 const { CommandService, InfoService, HealthService } = require('../services');
-const SshStreamService = require('../ssh/ssh.service');
+const SshStreamService = require('../ssh');
 
 const io = new Server({
     serveClient: false,
