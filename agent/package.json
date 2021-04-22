@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start-server": "node index.js --host localhost --username mukki --password mukki",
-    "test-client": "node test-client.js"
+    "start": "node index.js",
+    "test": "node test-client.js"
   },
   "keywords": [],
   "author": "",
