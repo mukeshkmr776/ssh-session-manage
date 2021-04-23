@@ -38,22 +38,27 @@ socket.on('disconnect', function (error) {
     // console.log('[disconnect] disconnect - ', error);
 });
 
-socket.on('message', (message) => {
+socket.on(WS_EVENTS.MESSAGE, (message) => {
     console.log('Message from server: ', message);
 });
 
+socket.on(WS_EVENTS.GET_HEALTH, (message) => {
+    console.log(message);
+});
+
+
+// ---------------------------------------------------------
 socket.on(WS_EVENTS.OPEN_SSH_STREAM, (message) => {
     console.log('Message from OPEN_SSH_STREAM: ', message.ssh_uuid);
 });
-
 socket.on(WS_EVENTS.MSG_SSH_STREAM, (message) => {
     process.stdout.write(message)
 });
-
 socket.on(WS_EVENTS.STOP_SSH_STREAM, (message) => {
-    console.log('---- CLOSED ----');
+    // console.log('---- CLOSED ----');
     socket.disconnect();
 });
+// ---------------------------------------------------------
 
 
 function openSSH() {
@@ -62,7 +67,6 @@ function openSSH() {
         username: 'mukki',
         password: 'mukki'
     });
-
     socket.emit(WS_EVENTS.MESSAGE, message);
 }
 

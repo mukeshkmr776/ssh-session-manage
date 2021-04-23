@@ -18,6 +18,10 @@ module.exports = {
         }
     },
 
+    getAllSessions: function () {
+        return SESSIONS;
+    },
+
     getSessionByHost: function (host) {
         return SESSIONS[host] || null;
     },

@@ -3,7 +3,7 @@ const { NodeSSH } = require('node-ssh');
 const SessionService = require('../session');
 
 const pipeStream = (stream, {stdout_cb = () => {}, stderr_cb = () => {}}) => {
-    const {stdin, stdout, stderr} = process
+    const {stdin, stdout, stderr} = process;
     const {isTTY} = stdout
 
     if (isTTY && stdin.setRawMode) stdin.setRawMode(true)
