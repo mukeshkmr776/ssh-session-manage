@@ -16,6 +16,7 @@ WebSocketService.onEvent(WebSocketService.WS_EVENTS.START_SSH_STREAM, async (mes
 
 
 WebSocketService.onEvent(WebSocketService.WS_EVENTS.GET_HEALTH, (messageEvent) => {
+    console.log('Message for GET_HEALTH', messageEvent.getMessage());
     messageEvent.sendToClient(WebSocketService.WS_EVENTS.GET_HEALTH, HealthService.getHealth());
 })
 

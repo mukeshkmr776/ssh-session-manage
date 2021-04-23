@@ -1,19 +1,22 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { AngularMaterialModule } from './angular.material';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 
+import { AppComponent } from './app.component';
 import { NodesComponent } from './pages/nodes/nodes.component';
 import { SessionComponent } from './pages/session/session.component';
 import { MenuComponent } from './pages/menu/menu.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 
+import { WebsocketService } from './services';
+
+const ws_config: SocketIoConfig = { url: location.origin, options: {path: '/ws', reconnect: true} };
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,12 +29,13 @@ import { WelcomeComponent } from './pages/welcome/welcome.component';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    SocketIoModule.forRoot(ws_config),
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
     FlexLayoutModule
   ],
-  providers: [],
+  providers: [WebsocketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

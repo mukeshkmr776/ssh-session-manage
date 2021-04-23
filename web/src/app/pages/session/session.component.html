@@ -1,13 +1,15 @@
 <h2>Session</h2>
 <div class="d-flex align-items-center">
   <div class="mr-auto">Currently connected session for node <code>9.9.9.9</code></div>
-  <button mat-flat-button color="primary">Reconnect</button>
-  <button mat-flat-button color="danger">Disconnect</button>
+  <button *ngIf="isConnected"  mat-flat-button color="danger"  (click)="clearTerminal()">Clear Terminal</button>
+  <button *ngIf="!isConnected" mat-flat-button color="primary" (click)="connect()">Connect</button>
+  <button *ngIf="isConnected"  mat-flat-button color="danger"  (click)="disconnect()">Disconnect</button>
 </div>
 <br>
 
 
 <div class="terminal d-flex flex-row flex-fill align-items-stretch">
-    <div class="mukki"><code>hello</code></div>
-    <div><code>world</code></div>
+  <code class="terminal-text" [innerHtml]="data"></code>
+    <!-- <div><code>hello</code></div>
+    <div><code>world</code></div> -->
 </div>
