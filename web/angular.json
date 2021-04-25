@@ -32,7 +32,9 @@
               "src/styles.less",
               "./node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/xterm/lib/xterm.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -98,7 +100,9 @@
               "src/styles.less",
               "./node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/xterm/lib/xterm.js"
+            ]
           }
         },
         "lint": {

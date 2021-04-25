@@ -1,5 +1,7 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { Terminal } from "xterm";
+
 import { WebsocketService } from 'src/app/services';
 
 @Component({
@@ -7,22 +9,25 @@ import { WebsocketService } from 'src/app/services';
   templateUrl: './session.component.html',
   styleUrls: ['./session.component.less']
 })
-export class SessionComponent implements OnInit, OnDestroy {
+export class SessionComponent implements OnInit, OnDestroy, AfterViewInit {
 
   isConnected: boolean = false;
   subscription: Subscription = null;
-  data: string = '';
+  term: Terminal;
+
+  @ViewChild('myTerminal') terminalDiv: ElementRef;
 
   constructor(private websocketService: WebsocketService) {}
 
   ngOnInit(): void {
     this.registerWebSocketEvents();
+    this.term = new Terminal();
   }
 
   connect() {
     if (this.isConnected) {
       console.log('already connected');
-      return;      
+      return;
     }
     this.websocketService.connectSocket();
     const host     = 'localhost';
@@ -34,10 +39,6 @@ export class SessionComponent implements OnInit, OnDestroy {
   disconnect() {
     this.isConnected = false;
     this.websocketService.disconnectSocket();
-  }
-
-  clearTerminal() {
-    this.data = '';
   }
 
   registerWebSocketEvents() {
@@ -53,9 +54,12 @@ export class SessionComponent implements OnInit, OnDestroy {
       if (!this.isConnected) {
         return;
       }
-      message = message.replace('\r\n', '\n');
-      this.data += message;
+      this.term.write(message);
     });
+  }
+
+  ngAfterViewInit() {
+    this.term.open(this.terminalDiv.nativeElement);
   }
 
   ngOnDestroy() {

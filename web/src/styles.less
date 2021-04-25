@@ -11,7 +11,7 @@ body {
     font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
 }
 
-// Buttons 
+// Buttons
 .custom-button {
   color: white !important;
   margin: 0 5px !important;
@@ -49,7 +49,11 @@ button[color="danger"] {
   border: 1px solid #0a2d74 !important;
   box-shadow: 2px 3px 3px rgba(0,0,0,0.25) !important;
   &:active {
-    text-decoration: none;    
+    text-decoration: none;
     outline: none;
   }
+}
+
+.terminal-custom {
+  @import url('./node_modules/xterm/css/xterm.css');
 }
